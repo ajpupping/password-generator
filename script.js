@@ -10,13 +10,21 @@
 // continue selecting random elements until length requirement is reached [ ]
 // if user says no to all options, return error message and start again [ ]
 
-var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-var specialChars = [' ', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~'];
-var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var lowerCase = ['abcdefghijklmnopqrstuvwxyz'];
+var upperCase = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+var specialChars = ['!"#$%&()*+,-./:;<=>?@[]^_{|}`~'];
+var numbers = ['0123456789'];
 
-desiredChars = []
+var desiredChars = [];
 
+function generatePassword() {
+  var passwordLength = Number(window.prompt("Enter desired length of password:"));
+  passwordLength = parseInt (passwordLength);
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128); {
+    return "Please choose a number between 8 and 128.";
+  } 
+
+}
 
 
 // Get references to the #generate element
