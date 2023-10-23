@@ -38,7 +38,20 @@ function generatePassword() {
   console.log(useSpecial)
   console.log(useNumber)
 
+  if (useLower === true) {
+    desiredChars = desiredChars.concat(lowerCase)
+  }
+  if (useUpper === true) {
+    desiredChars = desiredChars.concat(upperCase)
+  }
+  if (useSpecial === true) {
+    desiredChars = desiredChars.concat(specialChars)
+  }
+  if (useNumber === true) {
+    desiredChars = desiredChars.concat(numbers)
+  }
 
+console.log(desiredChars);
 }
 
 
