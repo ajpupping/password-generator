@@ -10,10 +10,10 @@
 // continue selecting random elements until length requirement is reached [ ]
 // if user says no to all options, return error message and start again [ ]
 
-var lowerCase = ['abcdefghijklmnopqrstuvwxyz'];
-var upperCase = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-var specialChars = ['!"#$%&()*+,-./:;<=>?@[]^_{|}`~'];
-var numbers = ['0123456789'];
+var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var specialChars = ['!','"','#', '$', '%', '&', '(', ')', '*', '+', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '{', '|', '}', '`', '~'];
+var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 var desiredChars = [];
 
@@ -23,6 +23,8 @@ var useSpecial = false;
 var useNumber = false; 
 
 function generatePassword() {
+
+  var randomPassword = ''
   var passwordLength = Number(window.prompt("Enter desired length of password:"));
   passwordLength = parseInt (passwordLength);
 
@@ -36,31 +38,61 @@ function generatePassword() {
   useNumber = confirm("Should your password include numbers?");
 
   // Testing if variables are working 
-  console.log(passwordLength)
-  console.log(useLower)
-  console.log(useUpper)
-  console.log(useSpecial)
-  console.log(useNumber)
+  console.log('length: ', passwordLength)
+  console.log('lowercase: ', useLower)
+  console.log('uppercase: ', useUpper)
+  console.log('special: ', useSpecial)
+  console.log('numbers: ', useNumber)
 
   if (!useLower && !useUpper && !useSpecial && !useNumber) {
     return "Please choose at least one type of character."
   }
 
   if (useLower === true) {
-    desiredChars = desiredChars.concat(lowerCase)
-  }
+    desiredChars = desiredChars.concat(lowerCase);
+    }
   if (useUpper === true) {
-    desiredChars = desiredChars.concat(upperCase)
+    desiredChars = desiredChars.concat(upperCase);
   }
   if (useSpecial === true) {
-    desiredChars = desiredChars.concat(specialChars)
+    desiredChars = desiredChars.concat(specialChars);
   }
   if (useNumber === true) {
-    desiredChars = desiredChars.concat(numbers)
+    desiredChars = desiredChars.concat(numbers);
   }
 
-console.log(desiredChars);
+// Testing if characters are getting added to array  
+console.log('desired characters array: ', desiredChars);
+
+for(let i = 0; i < passwordLength; i ++) {
+  randomPassword += desiredChars[Math.floor(Math.random() * desiredChars.length)];
+} 
+
+return randomPassword
+
 }
+
+// Generates 1 random character from each category
+function getLower() {
+  return lowerCase[Math.floor(Math.random() * lowerCase.length)];
+}
+
+function getUpper() {
+  return upperCase[Math.floor(Math.random() * upperCase.length)];
+}
+
+function getSpecial() {
+  return specialChars[Math.floor(Math.random() * specialChars.length)];
+}
+
+function getNumber() {
+  return numbers[Math.floor(Math.random() * numbers.length)];
+}
+
+console.log('lowercase: ', getLower());
+console.log('uppercase: ', getUpper());
+console.log('special character: ', getSpecial());
+console.log('number: ', getNumber());
 
 
 // Get references to the #generate element
