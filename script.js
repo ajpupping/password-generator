@@ -4,11 +4,11 @@
 // create an array for each type of character (lower, upper, special, number) [x]
 // create a desiredChars array [x]
 // add user selected chars to desiredChars array [X]
-// pick one random element from each charType array [ ]
+// pick one random element from each charType array [X]
   // (to ensure we get at least one of each, per challenge requirements)
-// select a random element from desiredChars array [ ]
-// continue selecting random elements until length requirement is reached [ ]
-// if user says no to all options, return error message and start again [ ]
+// select a random element from desiredChars array [X]
+// continue selecting random elements until length requirement is reached [X]
+// if user says no to all options, return error message and start again [X]
 
 var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -23,7 +23,6 @@ var useSpecial = false;
 var useNumber = false; 
 
 function generatePassword() {
-
   var randomPassword = ''
   var passwordLength = Number(window.prompt("Enter desired length of password:"));
   passwordLength = parseInt (passwordLength);
@@ -38,11 +37,11 @@ function generatePassword() {
   useNumber = confirm("Should your password include numbers?");
 
   // Testing if variables are working 
-  console.log('length: ', passwordLength)
-  console.log('lowercase: ', useLower)
-  console.log('uppercase: ', useUpper)
-  console.log('special: ', useSpecial)
-  console.log('numbers: ', useNumber)
+  // console.log('length: ', passwordLength)
+  // console.log('lowercase: ', useLower)
+  // console.log('uppercase: ', useUpper)
+  // console.log('special: ', useSpecial)
+  // console.log('numbers: ', useNumber)
 
   if (!useLower && !useUpper && !useSpecial && !useNumber) {
     return "Please choose at least one type of character."
@@ -62,7 +61,7 @@ function generatePassword() {
   }
 
 // Testing if characters are getting added to array  
-console.log('desired characters array: ', desiredChars);
+// console.log('desired characters array: ', desiredChars);
 
 for(let i = 0; i < passwordLength; i ++) {
   randomPassword += desiredChars[Math.floor(Math.random() * desiredChars.length)];
@@ -89,10 +88,10 @@ function getNumber() {
   return numbers[Math.floor(Math.random() * numbers.length)];
 }
 
-console.log('lowercase: ', getLower());
-console.log('uppercase: ', getUpper());
-console.log('special character: ', getSpecial());
-console.log('number: ', getNumber());
+// console.log('lowercase: ', getLower());
+// console.log('uppercase: ', getUpper());
+// console.log('special character: ', getSpecial());
+// console.log('number: ', getNumber());
 
 
 // Get references to the #generate element
